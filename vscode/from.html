@@ -31,7 +31,7 @@
             </label>
         </p>
         <button>送信</button>
-        
+
         <!-- <input type="submit" value="送信!!!!!!!!!!!!!"> -->
     </form>
     <hr>
@@ -81,6 +81,20 @@
             <label for="commnets">その他コメント</label>
             <br>
             <textarea id="commnets" rows="10" cols="40" placeholder="コメントを入力してください"></textarea>
+        </p>
+        <button>送信</button>
+    </form>
+    <h2>バリデーション</h2>
+    <form action="/dummy">
+        <label for="first">名前:</label>
+        <input type="text" id="first" name="first" required>
+        <p>
+            <label for="username">ユーザー名:</label>
+            <input type=" text" name="username" id="username" minlength="5" maxlength="20" required>
+        </p>
+        <p>
+            <!-- <input type="email"> -->
+            <input type="url">
         </p>
         <button>送信</button>
     </form>
