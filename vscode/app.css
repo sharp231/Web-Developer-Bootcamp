@@ -1,0 +1,13 @@
+h2 {
+  color: indianred;
+  background-color: rgb(108, 175, 0);
+}
+
+button  {
+    color: teal;
+    background-color: violet;
+}
+p {
+    color: green;
+    background: orange;
+}
