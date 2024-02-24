@@ -1,13 +1,31 @@
-h2 {
-  color: indianred;
-  background-color: rgb(108, 175, 0);
+h1 {
+  text-align: center;
+  font-weight: 100;
+  text-decoration: #0000ff underline wavy;
+  letter-spacing: 15px;
+  font-size: 80px;
+  /* font-family: segoe UI, futura, Arial, sens-serif; */
+  font-family: fantasy;
 }
 
-button  {
-    color: teal;
-    background-color: violet;
+h2 {
+  color: indianred;
+  background-color: #33FFBD ;
+}
+a {
+  text-decoration: none;
+}
+
+button {
+  color: teal;
+  background-color: violet;
 }
 p {
-    color: green;
-    background: orange;
+  color: green;
+  background: orange;
+  line-height: 0.5;
+}
+
+body {
+  background-color: rgb(83, 99, 238);
 }
