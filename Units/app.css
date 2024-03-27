@@ -1,0 +1,57 @@
+html {
+  font-size: 30px;
+}
+
+#perspiciatis {
+  background-color: blanchedalmond;
+  width: 400px;
+  height: 800px;
+}
+
+#perspiciatis div {
+  background-color: saddlebrown;
+  width: 70%;
+  height: 20%;
+}
+#ems h1 {
+  font-size: 40px;
+  border: 1px solid black;
+  line-height: 200%;
+}
+#ems h2 {
+  font-size: 2em;
+  margin-left: 1em;
+}
+#ems h3 {
+  font-size: 1.5em;
+}
+#ems {
+  font-size: 15px;
+}
+#ems p {
+  font-size: 1em;
+}
+button {
+  font-size: 1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  background-color: #0077b6;
+  color: white;
+}
+#ems ul {
+  font-size: 0.8em;
+}
+
+#rems h2 {
+  font-size: 3rem;
+}
+#rems h3 {
+  font-size: 2rem;
+}
+#rems ul {
+  font-size: 1rem;
+}
+
+#rems button {
+  font-size: 1.5rem;
+}
