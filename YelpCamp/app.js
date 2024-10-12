@@ -4,13 +4,17 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Campground = require('./models/campground');
 
-mongoose.connect('mongodb://localhost:27017/yelpcamp', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+})
     .then(() => {
-        console.log('MongoDB Connected OK');
+        console.log('Mongo Connection Open!')
     })
     .catch(err => {
-        console.log('MongoDB Error connecting ');
-        console.log(err);
+        console.log('Mongo Connection Error!')
+        console.log(err)
     });
 
 const app = express();
@@ -22,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
-    res.render('Home');
+    res.render('home')
 });
 
 app.get('/campgrounds', async (req, res) => {
@@ -43,7 +47,7 @@ app.post('/campgrounds', async (req, res) => {
     const campground = new Campground(req.body.campground);
     await campground.save();
     res.redirect(`/campgrounds/${campground._id}`);
-    });
+});
 
 app.get('/campgrounds/:id/edit', async (req, res) => {
     const campground = await Campground.findById(req.params.id);
@@ -63,5 +67,5 @@ app.delete('/campgrounds/:id', async (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('Serving on port 3000');
+    console.log('Serving on port 3000')
 });

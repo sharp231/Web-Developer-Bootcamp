@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
-const Campground = require('../models/campground');
 const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
+const Campground = require('../models/campground');
 
-mongoose.connect('mongodb://localhost:27017/yelpcamp', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+})
     .then(() => {
-        console.log('MongoDB Connected OK');
+        console.log('Mongo Connection Open!')
     })
     .catch(err => {
-        console.log('MongoDB Error connecting ');
-        console.log(err);
+        console.log('Mongo Connection Error!')
+        console.log(err)
     });
 
 const sample = array => array[Math.floor(Math.random() * array.length)];
@@ -17,15 +21,14 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
-        const randomCttyIndex = Math.floor(Math.random() * cities.length);
+        const randomCityIndex = Math.floor(Math.random() * cities.length);
         const camp = new Campground({
-            location: `${cities[randomCttyIndex].city}${cities[randomCttyIndex].prefecture}`,
-            title: `${sample(descriptors)}・${sample(places)}`
+            location: `${cities[randomCityIndex].prefecture} ${cities[randomCityIndex].city}`,
+            title: `${sample(descriptors)} ${sample(places)}`
         });
         await camp.save();
     }
 }
-
 seedDB().then(() => {
     mongoose.connection.close();
-}); 
+});
