@@ -11,7 +11,7 @@ app.get('/cats', (req, res) => {
     res.send('にゃー');
 });
 
-app.post('/cats', (req, res) => {
+app.post('/cats', (req, res) => { 
     res.send('/catsにPOSTされたデータ');
 });
 app.get('/dogs', (req, res) => {
