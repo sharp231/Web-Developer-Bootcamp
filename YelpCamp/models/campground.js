@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Review = require('./review');
+const { coordinates } = require('@maptiler/client');
 const { Schema } = mongoose;
 
 // https://res.cloudinary.com/dwwvtzk17/image/upload/w_200/v1632870878/YelpCamp/tv1qjswm7s9ke29mxnsj.jpg
@@ -15,6 +16,17 @@ imageSchema.virtual('thumbnail').get(function () {
 const campgroundSchema = new Schema({
     title: String,
     images: [imageSchema],
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
     price: Number,
     description: String,
     location: String,
