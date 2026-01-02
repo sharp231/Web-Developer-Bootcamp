@@ -149,15 +149,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 });
 
-app.use((err, req, res, next) => {
-  console.error('🔥 ERROR on', req.method, req.originalUrl);
-  console.error(err);
-
-  // まず原因特定のためにメッセージを返す（運用では詳細を隠す）
-  res.status(err.statusCode || 500).send(err.message || 'Internal Server Error');
-});
-
-
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`ポート${port}でリクエスト待受中...`);
