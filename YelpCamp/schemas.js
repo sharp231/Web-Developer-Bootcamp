@@ -10,7 +10,7 @@ const extension = (joi) => ({
     rules: {
         escapeHTML: {
             validate(value, helpers) {
-                const clean = sanitizeHtml(Value, {
+                const clean = sanitizeHtml(value, {
                     allowedTags: [],
                     allowedAttributes: {},
                 });
