@@ -149,6 +149,11 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 });
 
+mongoose.connection.once('open', () => {
+  console.log('✅ MongoDB connected');
+  console.log('DB name =', mongoose.connection.name);
+});
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`ポート${port}でリクエスト待受中...`);
